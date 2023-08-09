@@ -1,0 +1,7 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    {% for c in curso %}
+        <li>{{c.nombre}} - Comision: {{c.numero_comision}}</li>
+    {% endfor %}
+{% endblock %}
