@@ -1,22 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Buscar Cursos por Nombre</title>
-</head>
-<body>
-    <h1>Buscar Cursos por Nombre</h1>
-    <form method="get" action="">
-        {{ form.as_p }}
-        <button type="submit">Buscar</button>
-    </form>
-    
-    {% if cursos %}
-    <h2>Resultados de la búsqueda:</h2>
-    <ul>
-        {% for curso in cursos %}
-        <li>{{ curso.nombre }} - Comisión {{ curso.numero_comision }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-</body>
-</html>
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mb-4">Buscar Cursos por Nombre</h1>
+        <form method="get" action="">
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+        
+        {% if cursos %}
+        <h2 class="mt-4">Resultados de la búsqueda:</h2>
+        <ul class="list-group">
+            {% for curso in cursos %}
+            <li class="list-group-item">
+                {{ curso.nombre }} - Comisión {{ curso.numero_comision }}
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+{% endblock %}

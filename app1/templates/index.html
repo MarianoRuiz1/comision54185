@@ -18,12 +18,58 @@
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-light bg-light static-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+                <a class="navbar-brand" href="{% url 'app1:index' %}">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'app1:curso_list' %}">Cursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'app1:lista_entregables' %}">Entregables</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'app1:lista_profesores' %}">Profesores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'app1:lista_alumnos' %}">Alumnos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'app1:buscar_cursos_por_nombre' %}">Buscar Cursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'app1:estudiante-create' %}">Crear Estudiante</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'app1:profesor-create' %}">Crear Profesor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'app1:entregable-create' %}">Crear Entregable</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'app1:post_list' %}">Posts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'app1:logout' %}">Logout</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'app1:login' %}">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'app1:register' %}">Register</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
         </nav>
+        
         {% block content %}
         <!-- Masthead-->
         <header class="masthead">

@@ -1,8 +1,15 @@
 {% extends 'index.html' %}
 
 {% block content %}
-    {% for entregable in  entregables %}
-        {{entregable.nombre}}
-        {{entregable.descripcion}}
-    {% endfor %}
+    <div class="container">
+        <h1 class="mb-4">Lista de Entregables</h1>
+        <ul class="list-group">
+            {% for entregable in entregables %}
+                <li class="list-group-item">
+                    <h4>{{ entregable.nombre }}</h4>
+                    <p>{{ entregable.descripcion }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

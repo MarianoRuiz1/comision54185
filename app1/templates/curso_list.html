@@ -1,7 +1,15 @@
 {% extends 'index.html' %}
 
 {% block content %}
-    {% for c in curso %}
-        <li>{{c.nombre}} - Comision: {{c.numero_comision}}</li>
-    {% endfor %}
+    <div class="container">
+        <h1 class="mb-4">Lista de Cursos</h1>
+        <ul class="list-group">
+            {% for c in cursos %}
+                <li class="list-group-item">
+                    <h4>{{ c.nombre }}</h4>
+                    <p>Comision: {{ c.numero_comision }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
